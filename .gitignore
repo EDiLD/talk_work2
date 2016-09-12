@@ -1,0 +1,23 @@
+# Latex
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.lot
+*.lof
+*.toc
+/cache/*
+*.nav
+*.out
+*.snm
+
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Other
+Notes.txt
