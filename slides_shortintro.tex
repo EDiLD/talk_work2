@@ -1,6 +1,6 @@
 % -*- program: xelatex -*-
 
-\documentclass[12pt, t]{beamer}
+\documentclass[12pt, t, draft]{beamer}
 %%% ------------------------------------------------------------------------
 % packages
 \usepackage{tikz}
@@ -96,15 +96,14 @@
 \end{frame}
 
 
-%%% -------------------------------
-\section{Past} 
-
+%%% ---------------------------------------------------------------------------
+\section{Statistical Ecotoxicology} 
 \subsection{}
 \begin{frame}
 \frametitle{My field of research is somewhere between...}
 \center
 \includegraphics[width = 0.8\textwidth]{fig/wc_all.png} \\
-\mbox{... Eco(-toxico)logy), Data Analysis \& Programming}
+\mbox{... Eco(-toxico)logy, Data Analysis \& Programming}
 \end{frame}
 
 
@@ -122,38 +121,143 @@
 
 
 \begin{frame}
-\frametitle{Generalized Linear Models can do it better}
+\frametitle{Generalized Linear Models can do better}
 \center
 \includegraphics[width = 0.9\textwidth]{fig/glm1.png} \\
 \pause
 \center
-But maybe completely abandon NOEC and use a regression design?
+Better abandon NOEC and use a regression design \textsuperscript{1}...\\
+\tiny \textsuperscript{1} debated since 30 years.
 \end{frame}
 
 
 
-\section{Present}
+%%% ---------------------------------------------------------------------------
+\section{Monitoring Data}
 \subsection{}
 
 
 
-\section{Future}
+
+%%% ---------------------------------------------------------------------------
+\section{Software}
 \subsection{}
+
+\begin{frame}
+\frametitle{Biologists and Chemists face similar problems...}
+\footnotesize
+
+\centering
+\textbf{\textcolor{hilight}{Synonyms, Typos, Errors}}
+\begin{columns}[t]
+\column{.45\textwidth}
+\emph{Osmia rufa, Osmia bicornis, Osmia ruffa, Osmia unilandauis, Osmia spec.} 
+\column{.45\textwidth}
+Chlorpyrifos, Chlorpyriphos, Chlorphyrifos, Chlorpyrifos-ethyl, Chlorpypifot
+\end{columns}
+\pause
+
+
+\centering
+\textbf{\textcolor{hilight}{Hierarchy}}
+\begin{columns}[t]
+\column{.45\textwidth}
+Hymenoptera/ Apoidea/ Megachilidae/ Osmia/ rufa 
+\column{.45\textwidth}
+organophospate, ester, insecticide
+\end{columns}
+\pause
+
+\centering
+\textbf{\textcolor{hilight}{Attributes}}
+\begin{columns}[t]
+\column{.45\textwidth}
+Wing length, mass, season 
+\column{.45\textwidth}
+mass, $K_{OW}$, $LC_{50}$
+\end{columns}
+\pause
+
+\centering
+\textbf{\textcolor{hilight}{Identifiers}}
+\begin{columns}[t]
+\column{.45\textwidth}
+NCBI: UID, ITIS: CID, ... 
+\column{.45\textwidth}
+2921-88-2, Clc1c(OP(=S)[...], InChI=1S/C9H11C[...], SBPBAQFW[...], CSID,...
+\end{columns}
+\vspace{0.8em}
+\pause
+
+\rule{\textwidth}{1pt}
+\vspace{0.1em}
+
+\begin{columns}[t]
+\column{.45\textwidth}
+\centering
+2993 taxa
+\column{.45\textwidth}
+\centering
+489 pesticides \\ (+ 590 other organics)
+\end{columns}
+\end{frame}
 
 
 \begin{frame}
+\frametitle{Instead of wasting time...}
+
+
+\textbf{\textcolor{hilight}{webchem}}
+
+\begin{center}
+\includegraphics[width =.4\textwidth]{fig/fig1.pdf} \\
+\end{center}
+
+\pause
+\emph{''webchem ...likely saved hundreds of working hours''\textsuperscript{1}}
+
+\textcolor{hilight}{... use our software!}\\
+
+\includegraphics{fig/ropensci.png} \hfill 
+\tiny \textsuperscript{1} Münch (2016)
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Instead of wasting time...}
+
+
+\textbf{\textcolor{hilight}{taxize}}
+
+
+
+\end{frame}
+
+
+
+%%% ---------------------------------------------------------------------------
+\section{Outlook}
+\subsection{}
+
+
+
+%%% ---------------------------------------------------------------------------
+%%% Final slide
+\begin{frame}[plain]
 \frametitle{}
 \vspace{1em}
 \begin{centering}
 \Large \textcolor{title}{Statistical Ecotoxicology \\ - Improving the utilization of data for ecological risk assessment} \\[1em]
 Eduard Szöcs \\[0.3em]
-\tiny \textcolor{gray}{Institute for Environmental Sciences, University of Koblenz-Landau} \\[5em]
+\tiny \textcolor{gray}{Institute for Environmental Sciences, University of Koblenz-Landau} \\[3em]
 \end{centering}
 \normalsize
 \textcolor{hilight}{\faLaptop}~~~\href{http://edild.github.io/}{http://edild.github.io/ }\\[.5em]
 \textcolor{hilight}{\faTwitter}~~~\href{http://twitter.com/EduardSzoecs}{@EduardSzoecs} 	\\[0.5em]
 \textcolor{hilight}{\faEnvelope}~~~\href{mailto:szoecs@uni-landau.de}{szoecs@uni-landau.de} \\[.5em]
-\textcolor{hilight}{\faGift}~~~\href{https://github.com/edild/talk_work2}{https://github.com/edild/talk\_work}\\[0.5em]
+\textcolor{hilight}{\faGift}~~~\href{https://github.com/edild/talk_work2}{https://github.com/edild/talk\_work2}\\[0.5em]
 \hfill \includegraphics[width =.3\textwidth]{fig/Cc-by-nc_euro_icon.png} 
 \end{frame}
 
