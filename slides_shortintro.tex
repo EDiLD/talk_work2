@@ -1,6 +1,9 @@
 % -*- program: xelatex -*-
 
-\documentclass[12pt, t, draft]{beamer}
+\documentclass[12pt
+, t
+% , draft
+]{beamer}
 %%% ------------------------------------------------------------------------
 % packages
 \usepackage{tikz}
@@ -10,9 +13,13 @@
 \usepackage{adjustbox}
 % conditional (for figures)
 \usepackage{etoolbox}
+\usepackage{amsfonts}
 
 \usepackage{fontspec}
 \usepackage{fontawesome}
+
+\usepackage{tikz}
+\usepackage{adjustbox}
 
 \usepackage{subcaption} % side-by-side figures
 \usepackage{hyperref}
@@ -106,10 +113,71 @@
 \mbox{... Eco(-toxico)logy, Data Analysis \& Programming}
 \end{frame}
 
+\begin{frame}[plain]
+\begin{tikzpicture}[overlay, remember picture]
+\node[anchor=center] at (current page.center) {
+	\begin{beamercolorbox}[center]{title}
+     \Huge Statistical Ecotoxicology
+  \end{beamercolorbox}};
+\end{tikzpicture}
+\end{frame}
 
 \subsection{}
 \begin{frame}
-\frametitle{Intro stats session}
+\frametitle{Current use in ecotoxicology}
+\begin{itemize}
+	\item<1->{Ecological risk assessment heavily relies on statistics}
+	\item<2->{Experiments with low replication}
+	\item{Usually analysed using Linear Models of transformed data}
+	\item{Null Hypothesis Significance Testing (=> NOEC)}
+\end{itemize}
+
+\onslide<1>{
+\begin{adjustbox}{max totalsize={.9\textwidth}{.6\textheight},center}
+\begin{tikzpicture}[node distance = 2cm, auto]
+	\usetikzlibrary{shapes, arrows, positioning, calc}
+	% Define elements
+	\tikzstyle{line} = [draw, -latex', ultra thick]
+	\tikzstyle{block} = [rectangle, draw, 
+	    text width=5em, text centered, rounded corners, minimum height=4em]
+	\tikzstyle{paper} = [circle, draw, fill=gray!85, fill opacity=0.4, text opacity=1,  font = \bf, minimum width=2.5cm]
+	\tikzstyle{textbf} = [text centered, font = \bf\Large]
+	%% Effects
+	\node [name = exp, block, minimum width=2cm] {Experiment} ;
+	\node [name = stat, block, minimum width=2cm, right=1cm of exp, fill=hilight] {Data / Statistics} ;
+    \node [name = eff, block, 
+		minimum width=6.4cm, 
+		minimum height=3.5cm, 
+	below left=5mm of exp.west, anchor = west] {} ;
+	\node[textbf, below right=10mm and 5mm of exp, anchor = south]{Effects};
+
+	%% Exposure
+  	\node [name = prop, block, minimum width=2cm, below=4cm of exp] {Data / Properties} ;
+	\node [name = model, block, minimum width=2cm, right=1cm of prop] {Models} ;
+	\node [name = expo, block, 
+		minimum width=6.4cm, 
+		minimum height=3.5cm, 
+		below = 15mm of eff] {} ;
+	\node[textbf, above=-2mm of expo, anchor = north]{Exposure};
+
+	%% Risk Assessment
+	\node [name = risk, block, below right=0.75cm and 1cm of stat,
+       minimum width=5cm, 
+		minimum height=2.5cm, 
+		font = \bf\large,
+		align = center,
+       text width = 3cm] {Ecological Risk\\  Assessment};
+% arrows
+	\path [line] (exp) -- (stat);
+	\path [line] (prop) -- (model);
+	\path [line] (eff) -| (risk);
+	\path [line] (expo) -| (risk);
+\end{tikzpicture}
+\end{adjustbox}
+}
+
+
+
 \end{frame}
 
 
@@ -136,19 +204,39 @@ Better abandon NOEC and use a regression design \textsuperscript{1}...\\
 \section{Monitoring Data}
 \subsection{}
 
+\begin{frame}[plain]
+\begin{tikzpicture}[overlay, remember picture]
+\node[anchor=center] at (current page.center) {
+	\begin{beamercolorbox}[center]{title}
+     \Huge Monitoring Data
+  \end{beamercolorbox}};
+\end{tikzpicture}
+\end{frame}
 
+\begin{frame}
+\frametitle{aaa}
+\end{frame}
 
 
 %%% ---------------------------------------------------------------------------
 \section{Software}
 \subsection{}
 
+\begin{frame}[plain]
+\begin{tikzpicture}[overlay, remember picture]
+\node[anchor=center] at (current page.center) {
+	\begin{beamercolorbox}[center]{title}
+     \Huge Software
+  \end{beamercolorbox}};
+\end{tikzpicture}
+\end{frame}
+
 \begin{frame}
 \frametitle{Biologists and Chemists face similar problems...}
 \footnotesize
 
 \centering
-\textbf{\textcolor{hilight}{Synonyms, Typos, Errors}}
+\textbf{\textcolor{hilight}{Names}}
 \begin{columns}[t]
 \column{.45\textwidth}
 \emph{Osmia rufa, Osmia bicornis, Osmia ruffa, Osmia unilandauis, Osmia spec.} 
@@ -159,7 +247,7 @@ Chlorpyrifos, Chlorpyriphos, Chlorphyrifos, Chlorpyrifos-ethyl, Chlorpypifot
 
 
 \centering
-\textbf{\textcolor{hilight}{Hierarchy}}
+\textbf{\textcolor{hilight}{Hierarchies}}
 \begin{columns}[t]
 \column{.45\textwidth}
 Hymenoptera/ Apoidea/ Megachilidae/ Osmia/ rufa 
@@ -172,9 +260,9 @@ organophospate, ester, insecticide
 \textbf{\textcolor{hilight}{Attributes}}
 \begin{columns}[t]
 \column{.45\textwidth}
-Wing length, mass, season 
+Wing length, Mass, Season 
 \column{.45\textwidth}
-mass, $K_{OW}$, $LC_{50}$
+Mass, $K_{OW}$, $LC_{50}$
 \end{columns}
 \pause
 
@@ -182,7 +270,7 @@ mass, $K_{OW}$, $LC_{50}$
 \textbf{\textcolor{hilight}{Identifiers}}
 \begin{columns}[t]
 \column{.45\textwidth}
-NCBI: UID, ITIS: CID, ... 
+NCBI, ITIS, EOL, ... 
 \column{.45\textwidth}
 2921-88-2, Clc1c(OP(=S)[...], InChI=1S/C9H11C[...], SBPBAQFW[...], CSID,...
 \end{columns}
@@ -190,7 +278,7 @@ NCBI: UID, ITIS: CID, ...
 \pause
 
 \rule{\textwidth}{1pt}
-\vspace{0.1em}
+\textbf{\textcolor{hilight}{Amount of data}}
 
 \begin{columns}[t]
 \column{.45\textwidth}
@@ -205,41 +293,95 @@ NCBI: UID, ITIS: CID, ...
 
 \begin{frame}
 \frametitle{Instead of wasting time...}
-
-
-\textbf{\textcolor{hilight}{webchem}}
-
+\textbf{\textcolor{hilight}{taxize - taxonomic search and retrieval in R}}
 \begin{center}
-\includegraphics[width =.4\textwidth]{fig/fig1.pdf} \\
+\includegraphics[width =.8\textwidth]{fig/sources.png}
 \end{center}
-
-\pause
-\emph{''webchem ...likely saved hundreds of working hours''\textsuperscript{1}}
-
-\textcolor{hilight}{... use our software!}\\
-
-\includegraphics{fig/ropensci.png} \hfill 
-\tiny \textsuperscript{1} Münch (2016)
-
+\vfill
+\includegraphics{fig/ropensci2.png}
 \end{frame}
 
 
 
 \begin{frame}
 \frametitle{Instead of wasting time...}
-
-
-\textbf{\textcolor{hilight}{taxize}}
-
-
-
+\textbf{\textcolor{hilight}{webchem}}
+\begin{center}
+\vspace*{-1.5cm}\includegraphics[width =.7\textwidth]{fig/fig1.pdf} \\
+\end{center}
+\pause
+\emph{''webchem ...likely saved hundreds of working hours''}
+\vfill
+\hfill 
+\tiny Münch (2016)
 \end{frame}
+
+
 
 
 
 %%% ---------------------------------------------------------------------------
 \section{Outlook}
 \subsection{}
+
+\begin{frame}[plain]
+\begin{tikzpicture}[overlay, remember picture]
+\node[anchor=center] at (current page.center) {
+	\begin{beamercolorbox}[center]{title}
+     \Huge Outlook
+  \end{beamercolorbox}};
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Analysing chemical monitoring data is not easy, because of}
+\begin{columns}[T]
+\column{.4\textwidth}
+	\footnotesize
+	\vspace{1em}
+	\begin{itemize}
+	\item continuous distribution in $\mathbb{R}^{+}_0$
+	\item censoring \\ (x \textless LOQ )3
+	\pause
+	\item non-linearity \\ (season, trends)
+	\item dependency \\(spatial, temporal)
+	\end{itemize}
+\column{.6\textwidth}
+	\colorbox{white}{\includegraphics<1->[width =\textwidth]{fig/glyph.pdf}}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Dealing with censored, non-normal data}
+\includegraphics<1>[width =0.8\textwidth]{fig/p0.pdf}
+\includegraphics<2>[width =0.8\textwidth]{fig/p1.pdf}
+\includegraphics<3>[width =0.8\textwidth]{fig/p2.pdf}
+\includegraphics<4>[width =0.8\textwidth]{fig/p3.pdf}
+\includegraphics<5>[width =0.8\textwidth]{fig/p4.pdf}
+\onslide<5-> \textcolor{hilight}{Currently, guidance how to model environmental concentrations ís missing}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Temporal dynamics of pesticide occurrence}
+\begin{itemize}
+\item Pesticides show compound specific dynamics
+\item Mixture dynamics? - Multivariate response. \pause
+\item Seasonality, Trends (Fade out...)? 
+$y = \beta_0 + f_{seasonal}(x_1) + f_{trend}(x_2) + \epsilon;  \epsilon \sim ???$
+\pause
+\item Additional layer of model complexity...
+\end{itemize}
+\centering
+\includegraphics[width =0.6\textwidth]{fig/gam1.png}
+
+
+\end{frame}
+
 
 
 
