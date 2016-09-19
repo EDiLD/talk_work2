@@ -113,6 +113,8 @@
 \mbox{... Eco(-toxico)logy, Data Analysis \& Programming}
 \end{frame}
 
+
+\subsection{}
 \begin{frame}[plain]
 \begin{tikzpicture}[overlay, remember picture]
 \node[anchor=center] at (current page.center) {
@@ -122,17 +124,17 @@
 \end{tikzpicture}
 \end{frame}
 
-\subsection{}
+
 \begin{frame}
 \frametitle{Current use in ecotoxicology}
 \begin{itemize}
-	\item<1->{Ecological risk assessment heavily relies on statistics}
+	\item<1->{Ecological risk assessment (ERA) relies on statistics}
 	\item<2->{Experiments with low replication}
-	\item{Usually analysed using Linear Models of transformed data}
-	\item{Null Hypothesis Significance Testing (=> NOEC)}
+	\item<3->{Usually analysed using Linear Models of transformed data}
+	\item<3->{Null Hypothesis Significance Testing (=> NOEC)}
 \end{itemize}
 
-\onslide<1>{
+\only<1>{
 \begin{adjustbox}{max totalsize={.9\textwidth}{.6\textheight},center}
 \begin{tikzpicture}[node distance = 2cm, auto]
 	\usetikzlibrary{shapes, arrows, positioning, calc}
@@ -176,7 +178,11 @@
 \end{adjustbox}
 }
 
-
+\only<3>{
+	\begin{center}
+	\colorbox{white}{\includegraphics[width=0.8\textwidth]{fig/distr.png}}
+	\end{center}
+}
 
 \end{frame}
 
@@ -205,17 +211,128 @@ Better abandon NOEC and use a regression design \textsuperscript{1}...\\
 \subsection{}
 
 \begin{frame}[plain]
-\begin{tikzpicture}[overlay, remember picture]
-\node[anchor=center] at (current page.center) {
-	\begin{beamercolorbox}[center]{title}
-     \Huge Monitoring Data
-  \end{beamercolorbox}};
-\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+	\node[anchor=center] at (current page.center) {
+		\begin{beamercolorbox}[center]{title}
+	     \Huge Monitoring Data
+	  \end{beamercolorbox}};
+	\end{tikzpicture}
 \end{frame}
 
+\subsection{}
 \begin{frame}
-\frametitle{aaa}
+\frametitle{Monitoring data...}
+\begin{itemize}
+\item ... provides an opportunity to study large-scale dynamics of pesticides
+\pause
+\item ... provides the biggest amount of data available
+\pause
+\item ... is really messy
+\end{itemize}
+\begin{center}
+\colorbox{white}{\includegraphics[width = 0.6\textwidth]{fig/data_cleaning.pdf}}
+\end{center}
 \end{frame}
+
+
+\begin{frame}
+\frametitle{The biggest currently available dataset on}
+	\begin{columns}[t]
+	\column{.48\textwidth}
+	pesticides
+	\includegraphics[width = \textwidth]{fig/phch_map.png} \\
+	3,000 sites, 45,000 samples, 500 pesticides
+	\column{.48\textwidth}
+	invertebrates
+	\includegraphics[width = \textwidth]{fig/mzb_map.png} \\
+	14,000 sites, 27,000 samples, 3000 taxa
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Additional data on}
+\textcolor{hilight}{Sites}
+\begin{itemize}
+\item catchment size
+\item agriculture within catchment
+\end{itemize}
+
+\pause
+\textcolor{hilight}{Samples}
+\begin{itemize}
+\item daily precipitation
+\end{itemize}
+
+\pause
+\textcolor{hilight}{Compounds}
+\begin{itemize}
+\item RAC, LC50, EQS
+\item chemical group
+\item identifiers
+\item properties
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Results - Thresholds}
+\pause
+\begin{center}
+	\includegraphics[width = 0.8\textwidth]{fig/figure4.pdf}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Results - Precipitation \& Seasonality}
+	\begin{columns}[T]
+	\column{.48\textwidth}
+\begin{itemize}
+
+\item<1-> Used a mixture model \scriptsize
+$
+RQ_i \sim ZAGA(\mu_i, \sigma, \pi_i) = 
+  \begin{cases}
+    (1 - \pi_i)   & \quad  \text{if } y < LOQ \\
+    \pi_i \times f_{Gamma} (\mu_i, \sigma) & \quad \text{if } y \ge LOQ \\
+\end{cases}
+$
+\normalsize
+\item<2-> Precipitation and Quarter as predictors
+\item<2-> Site within state as random intercept
+\item<3-> \textcolor{hilight}{Precipitation before sampling increases RQ}
+\item<4-> \textcolor{hilight}{Summer higher RQ, but compound specific}
+
+\end{itemize}
+	\column{.48\textwidth}
+	\includegraphics<3->[width =\textwidth]{fig/figure5.pdf}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Results - Small Water Bodies (SWB)}
+	\begin{columns}[T]
+	\column{.48\textwidth}
+		\begin{itemize}
+		\item<1-> most streams are \emph{small}
+		\item<1-> refuge of biodiversity
+		\item<1-> High risk of pollution
+			\begin{itemize}
+				\item adjacency to fields
+				\item low dilution
+			\end{itemize}
+		\item<2-> \textcolor{hilight}{Neonicotinoids}
+		\item<2-> \textcolor{hilight}{up to 244x RAC}
+		\item<2-> \textcolor{hilight}{ecological effects likely}
+		\end{itemize}
+	\column{.48\textwidth}
+	\includegraphics<2->[width = \textwidth]{fig/figure6.pdf}
+	\end{columns}
+\end{frame}
+
 
 
 %%% ---------------------------------------------------------------------------
@@ -223,14 +340,15 @@ Better abandon NOEC and use a regression design \textsuperscript{1}...\\
 \subsection{}
 
 \begin{frame}[plain]
-\begin{tikzpicture}[overlay, remember picture]
-\node[anchor=center] at (current page.center) {
-	\begin{beamercolorbox}[center]{title}
-     \Huge Software
-  \end{beamercolorbox}};
-\end{tikzpicture}
+	\begin{tikzpicture}[overlay, remember picture]
+	\node[anchor=center] at (current page.center) {
+		\begin{beamercolorbox}[center]{title}
+	     \Huge Software
+	  \end{beamercolorbox}};
+	\end{tikzpicture}
 \end{frame}
 
+\subsection{}
 \begin{frame}
 \frametitle{Biologists and Chemists face similar problems...}
 \footnotesize
@@ -293,6 +411,7 @@ NCBI, ITIS, EOL, ...
 
 \begin{frame}
 \frametitle{Instead of wasting time...}
+\pause
 \textbf{\textcolor{hilight}{taxize - taxonomic search and retrieval in R}}
 \begin{center}
 \includegraphics[width =.8\textwidth]{fig/sources.png}
@@ -305,6 +424,7 @@ NCBI, ITIS, EOL, ...
 
 \begin{frame}
 \frametitle{Instead of wasting time...}
+\pause
 \textbf{\textcolor{hilight}{webchem}}
 \begin{center}
 \vspace*{-1.5cm}\includegraphics[width =.7\textwidth]{fig/fig1.pdf} \\
@@ -324,6 +444,29 @@ NCBI, ITIS, EOL, ...
 \section{Outlook}
 \subsection{}
 
+\begin{frame}
+\frametitle{Conclusions from my PhD}
+\begin{itemize}
+\item Change your model, not your data
+\pause
+\item Ultimately ban NOEC
+\pause
+\item Monitoring data can be used to 
+		\begin{itemize}
+			\item study pesticide dynamics
+			\item inform ERA
+		\end{itemize}
+\pause
+\item SWB at risk 
+\pause
+\item Handling big eco(toxico-)logical data not easy 
+		\begin{itemize}
+			\item now easier
+		\end{itemize}
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}[plain]
 \begin{tikzpicture}[overlay, remember picture]
 \node[anchor=center] at (current page.center) {
@@ -334,18 +477,18 @@ NCBI, ITIS, EOL, ...
 \end{frame}
 
 
+\subsection{}
 \begin{frame}
-\frametitle{Analysing chemical monitoring data is not easy, because of}
+\frametitle{Analysing chemical concentrations is not easy, because of}
 \begin{columns}[T]
 \column{.4\textwidth}
 	\footnotesize
 	\vspace{1em}
 	\begin{itemize}
 	\item continuous distribution in $\mathbb{R}^{+}_0$
-	\item censoring \\ (x \textless LOQ )3
-	\pause
-	\item non-linearity \\ (season, trends)
-	\item dependency \\(spatial, temporal)
+	\item censoring \\ (x \textless LOQ )
+	\item<2-> non-linearity \\ (season, trends)
+	\item<2-> dependency \\(spatial, temporal)
 	\end{itemize}
 \column{.6\textwidth}
 	\colorbox{white}{\includegraphics<1->[width =\textwidth]{fig/glyph.pdf}}
@@ -360,26 +503,24 @@ NCBI, ITIS, EOL, ...
 \includegraphics<2>[width =0.8\textwidth]{fig/p1.pdf}
 \includegraphics<3>[width =0.8\textwidth]{fig/p2.pdf}
 \includegraphics<4>[width =0.8\textwidth]{fig/p3.pdf}
-\includegraphics<5>[width =0.8\textwidth]{fig/p4.pdf}
-\onslide<5-> \textcolor{hilight}{Currently, guidance how to model environmental concentrations ís missing}
+\includegraphics<5>[width =0.8\textwidth]{fig/p4.pdf}\\
+\onslide<5-> \textcolor{hilight}{Guidance how to model environmental concentrations is missing}
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{Temporal dynamics of pesticide occurrence}
-\begin{itemize}
-\item Pesticides show compound specific dynamics
-\item Mixture dynamics? - Multivariate response. \pause
-\item Seasonality, Trends (Fade out...)? 
-$y = \beta_0 + f_{seasonal}(x_1) + f_{trend}(x_2) + \epsilon;  \epsilon \sim ???$
-\pause
-\item Additional layer of model complexity...
-\end{itemize}
-\centering
-\includegraphics[width =0.6\textwidth]{fig/gam1.png}
-
-
+	\frametitle{Temporal dynamics of pesticide occurrence}
+	\begin{itemize}
+	\item Pesticides show compound specific dynamics
+	\item Mixture dynamics? - Multivariate response. 
+	\pause
+	\item<2-> Seasonality, Trends (Fade out...)? 
+	$y = \beta_0 + f_{seasonal}(x_1) + f_{trend}(x_2) + \epsilon;  \epsilon \sim ???$
+	\end{itemize}
+	\begin{center}
+	\includegraphics<2->[width =0.6\textwidth]{fig/gam1.png}
+	\end{center}
 \end{frame}
 
 
