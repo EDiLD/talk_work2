@@ -189,18 +189,19 @@
 \begin{frame}
 	\frametitle{Statistical Power in current experimental designs in ecotoxicology is unacceptably low}
 	\center
-	\includegraphics[width = 0.9\textwidth]{fig/glm2.png} \\
+	\includegraphics[width = 0.8\textwidth]{fig/glm2.png} \\
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Generalized Linear Models can do better}
 	\center
-	\includegraphics[width = 0.9\textwidth]{fig/glm1.png} \\
+	\includegraphics[width = 0.8\textwidth]{fig/glm1.png} \\
 	\pause
 	\center
 	Better abandon NOEC and use a regression design \textsuperscript{1}...\\
-	\tiny \textsuperscript{1} debated since 30 years.
+	\emph{A priori} power analysis for better design. \\
+	\hfill \tiny \textsuperscript{1} debated since 30 years.
 \end{frame}
 
 
@@ -223,9 +224,9 @@
 \begin{frame}
 \frametitle{Monitoring data...}
 	\begin{itemize}
-	\item ... provides an opportunity to study large-scale dynamics of pesticides
+	\item ... provides the biggest amount of data available on pesticides in the environment
 	\pause
-	\item ... provides the biggest amount of data available
+	\item ... provides an opportunity to study large-scale dynamics of pesticides
 	\pause
 	\item ... is really messy
 	\end{itemize}
@@ -287,6 +288,7 @@
 
 \begin{frame}
 \frametitle{Results - Precipitation \& Seasonality}
+	\pause
 	\begin{columns}[T]
 	\column{.48\textwidth}
 	\begin{itemize}
@@ -302,10 +304,10 @@
 		\item<2-> Precipitation and Quarter as predictors
 		\item<2-> Site within state as random intercept
 		\item<3-> \textcolor{hilight}{Precipitation before sampling increases RQ}
-		\item<4-> \textcolor{hilight}{Summer higher RQ, but compound specific}
+		\item<3-> \textcolor{hilight}{Summer higher RQ, but compound specific}
 	\end{itemize}
 	\column{.48\textwidth}
-	\includegraphics<3->[width =\textwidth]{fig/figure5.pdf}
+	\includegraphics<3->[width =1.1\textwidth]{fig/figure5.pdf}
 	\end{columns}
 \end{frame}
 
@@ -316,18 +318,18 @@
 	\column{.48\textwidth}
 		\begin{itemize}
 		\item<1-> most streams are \emph{small}
-		\item<1-> refuge of biodiversity
-		\item<1-> High risk of pollution
+		\item<2-> refuge of biodiversity
+		\item<3-> High risk of pollution
 			\begin{itemize}
 				\item adjacency to fields
 				\item low dilution
 			\end{itemize}
-		\item<2-> \textcolor{hilight}{Neonicotinoids}
-		\item<2-> \textcolor{hilight}{up to 244x RAC}
-		\item<2-> \textcolor{hilight}{ecological effects likely}
+		\item<4-> \textcolor{hilight}{Neonicotinoids}
+		\item<4-> \textcolor{hilight}{up to 244x RAC}
+		\item<4-> \textcolor{hilight}{ecological effects likely}
 		\end{itemize}
 	\column{.48\textwidth}
-	\includegraphics<2->[width = \textwidth]{fig/figure6.pdf}
+	\includegraphics<4->[width = \textwidth]{fig/figure6.pdf}
 	\end{columns}
 \end{frame}
 
@@ -349,8 +351,8 @@
 \subsection{}
 \begin{frame}
 	\frametitle{Biologists and Chemists face similar problems...}
+	\pause
 	\footnotesize
-
 	\centering
 	\textbf{\textcolor{hilight}{Names}}
 	\begin{columns}[t]
@@ -498,16 +500,31 @@
 	\end{columns}
 \end{frame}
 
+\begin{frame}
+	\frametitle{Dealing with censored, non-normal data}
+
+	\begin{columns}[T]
+	\column{.49\textwidth}
+	\includegraphics<1>[width =\textwidth]{fig/p0.pdf}
+	\column{.49\textwidth}
+		\footnotesize
+		\begin{itemize}
+		\item Simulated data
+		\item $y \sim Gamma(\mu, \kappa = 10)$
+		\item $\mu = e^{0.5 + x}$
+		\item censoring at $c = 1.5$
+		\end{itemize}
+	\end{columns}
+\end{frame}
 
 
 \begin{frame}
 	\frametitle{Dealing with censored, non-normal data}
-	\includegraphics<1>[width =0.8\textwidth]{fig/p0.pdf}
-	\includegraphics<2>[width =0.8\textwidth]{fig/p1.pdf}
-	\includegraphics<3>[width =0.8\textwidth]{fig/p2.pdf}
-	\includegraphics<4>[width =0.8\textwidth]{fig/p3.pdf}
-	\includegraphics<5>[width =0.8\textwidth]{fig/p4.pdf}\\
-	\onslide<5-> \textcolor{hilight}{Guidance how to model environmental concentrations is missing}
+	\includegraphics<1>[width =0.7\textwidth]{fig/p1.pdf}
+	\includegraphics<2>[width =0.7\textwidth]{fig/p2.pdf}
+	\includegraphics<3>[width =0.7\textwidth]{fig/p3.pdf}
+	\includegraphics<4->[width =0.7\textwidth]{fig/p4.pdf}
+	\onslide<5->{ \textcolor{hilight}{Guidance how to model environmental concentrations is missing}}
 \end{frame}
 
 
@@ -518,7 +535,8 @@
 	\item Pesticides show compound specific dynamics
 	\item Mixture dynamics? - Multivariate response. 
 	\pause
-	\item<2-> Seasonality, Trends (Fade out...)? 
+	\item<2-> Seasonality, Trends (Fade out...)?  
+	\pause
 	$y = \beta_0 + f_{seasonal}(x_1) + f_{trend}(x_2) + \epsilon;  \epsilon \sim ???$
 	\end{itemize}
 	\begin{center}
