@@ -69,9 +69,9 @@
 	\setbeamercolor{itemize/enumerate subbody}{fg=gray}
 }{
 	% some colors
-	\definecolor{foreground}{RGB}{0, 0, 0}
+	\definecolor{foreground}{RGB}{40,40,40}
 	\definecolor{background}{RGB}{255,255,255}
-	\definecolor{title}{RGB}{107,174,214}
+	\definecolor{title}{RGB}{42,111,151}
 	\definecolor{gray}{RGB}{116,116,116}
 	\definecolor{hilight}{RGB}{228, 97, 0}
 	\setbeamercolor{section in head/foot}{fg = title}
@@ -292,19 +292,19 @@
 	\begin{columns}[T]
 	\column{.48\textwidth}
 	\begin{itemize}
-		\item<1-> Used a mixture model \scriptsize
+		\item<1->{Used a mixture model \scriptsize
 		$
 		RQ_i \sim ZAGA(\mu_i, \sigma, \pi_i) = 
 		  \begin{cases}
 		    (1 - \pi_i)   & \quad  \text{if } y < LOQ \\
 		    \pi_i \times f_{Gamma} (\mu_i, \sigma) & \quad \text{if } y \ge LOQ \\
 		\end{cases}
-		$
+		$}
 		\normalsize
 		\item<2-> Precipitation and Quarter as predictors
 		\item<2-> Site within state as random intercept
 		\item<3-> \textcolor{hilight}{Precipitation before sampling increases RQ}
-		\item<3-> \textcolor{hilight}{Summer higher RQ, but compound specific}
+		\item<4-> \textcolor{hilight}{Summer higher RQ, but compound specific}
 	\end{itemize}
 	\column{.48\textwidth}
 	\includegraphics<3->[width =1.1\textwidth]{fig/figure5.pdf}
@@ -318,12 +318,12 @@
 	\column{.48\textwidth}
 		\begin{itemize}
 		\item<1-> most streams are \emph{small}
-		\item<2-> refuge of biodiversity
-		\item<3-> High risk of pollution
+		\item<2-> High risk of pollution
 			\begin{itemize}
 				\item adjacency to fields
 				\item low dilution
 			\end{itemize}
+		\item<3-> refuge of biodiversity
 		\item<4-> \textcolor{hilight}{Neonicotinoids}
 		\item<4-> \textcolor{hilight}{up to 244x RAC}
 		\item<4-> \textcolor{hilight}{ecological effects likely}
@@ -523,7 +523,7 @@
 	\includegraphics<1>[width =0.7\textwidth]{fig/p1.pdf}
 	\includegraphics<2>[width =0.7\textwidth]{fig/p2.pdf}
 	\includegraphics<3>[width =0.7\textwidth]{fig/p3.pdf}
-	\includegraphics<4->[width =0.7\textwidth]{fig/p4.pdf}
+	\includegraphics<4->[width =0.7\textwidth]{fig/p4.pdf}\\
 	\onslide<5->{ \textcolor{hilight}{Guidance how to model environmental concentrations is missing}}
 \end{frame}
 
